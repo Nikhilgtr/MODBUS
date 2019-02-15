@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define _POSIX_SOURCE 1 /* POSIX compliant source */
+#define _POSIX_SOURCE 1 
 #define FALSE 0
 #define TRUE 1
 #define POLY 0xA001
@@ -97,7 +97,9 @@ void readModbus_M()
 	   //printf("Modbus: ");
        while (STOP==FALSE) {                       /* loop for input */
           readStatus = read(fd,&modbyte,1);       /* returns after 5 chars have been input */
-          if( readStatus != 0 ) printf("%.2X ",modbyte); else countNull++;
+          if( readStatus != 0 )
+        	  printf("%.2X ",modbyte);
+          else countNull++;
           if (countNull >= 2) STOP=TRUE;
           //if (countNull >= ) STOP=TRUE;
         }
